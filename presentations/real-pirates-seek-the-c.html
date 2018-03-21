@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Real Pirates Seek the C!</title>
+
+	<meta name="description" content="The Case for C as a Modern Programming Language">
+	<meta name="author" content="Clay Dowling">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="reveal.js/css/theme/league.css" id="theme">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section>
+				<h1>Real Pirates Seek the C!</h1>
+				<h3>The Case for C as a Modern Development Language</h3>
+				<p>
+					<small>Created by
+						<a href="http://claydowling.com">Clay Dowling</a>
+					</small>
+				</p>
+			</section>
+
+			<section>
+				<h1>I Want Software Development To Be Fun</h1>
+			</section>
+
+			<section>
+				<h2>Why C?</h2>
+				<img src="images/clay-gearcat.jpg" width="33%" style="float: right" id="clay" />
+				<p class="fragment">The language is older than you.</p>
+				<p class="fragment">50 years of language developments</p>
+				<p class="fragment">
+					It's Dead Sexy
+				</p>
+			</section>
+
+			<section>
+				<h2>No Seriously, Why?</h2>
+
+				<p class="fragment">Small and easy to understand</p>
+				<p class="fragment">Rich ecosystem</p>
+				<p class="fragment">50 years of language evolution</p>
+				<p class="fragment">Real development with minimal tools</p>
+			</section>
+
+			<section>
+				<h2>Modern Features</h2>
+
+				<p>Functional - Functions are first class objects</p>
+				<p>Object Oriented - Data and logic separated by default</p>
+				<p>Test Driven Development - Built in test features and robust libraries</p>
+				<p>Web Native - Libraries for easy self hosted web apps</p>
+				<p>Distributed - Libraries for remote interaction</p>
+				<section>
+					<h1>Functional</h1>
+
+					<p>Functions are first class objects</p>
+
+					<p>Well understood models for iterating over large data sets</p>
+				</section>
+				<section>Functional - Functions are first class objects</section>
+				<section>Object Oriented - Data and logic separated by default</section>
+				<section>Test Driven Development - Built in test features and robust libraries</section>
+				<section>Web Native - Libraries for easy self hosted web apps</section>
+				<section>Distributed - Libraries for remote interaction</section>
+			</section>
+
+		</div>
+
+	</div>
+
+	<script src="reveal.js/lib/js/head.min.js"></script>
+	<script src="reveal.js/js/reveal.js"></script>
+
+	<script>
+
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [
+				{ src: 'reveal.js/lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'reveal.js/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'reveal.js/plugin/search/search.js', async: true },
+				{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: 'reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
