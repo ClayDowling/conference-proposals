@@ -40,7 +40,7 @@
 
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<div class="slides">
-			<section>
+			<section data-background="images/tall-ship.jpeg">
 				<h1>Real Pirates Seek the C!</h1>
 				<h3>The Case for C as a Modern Development Language</h3>
 				<p>
@@ -59,9 +59,7 @@
 				<img src="images/clay-gearcat.jpg" width="33%" style="float: right" id="clay" />
 				<p class="fragment">The language is older than you.</p>
 				<p class="fragment">50 years of language developments</p>
-				<p class="fragment">
-					It's Dead Sexy
-				</p>
+				<p class="fragment">It's Dead Sexy</p>
 			</section>
 
 			<section>
@@ -81,18 +79,129 @@
 				<p>Test Driven Development - Built in test features and robust libraries</p>
 				<p>Web Native - Libraries for easy self hosted web apps</p>
 				<p>Distributed - Libraries for remote interaction</p>
+
+			</section>
+
+			<section>
+				<h1>The Real Reason</h1>
+
+				<p class="fragment current-visible">A small language means fewer options</p>
+				<p class="fragment current-visible">Fewer options &rArr; Focus on getting stuff done</p>
+				<p class="fragment current-visible">Getting Stuff Done &rArr; Happy Developers</p>
+			</section>
+
+			<section>
 				<section>
-					<h1>Functional</h1>
+					<h2>Building Large Projects Is Hard</h2>
 
-					<p>Functions are first class objects</p>
-
-					<p>Well understood models for iterating over large data sets</p>
+					<p>Different build tools exist to make the job easier</p>
+					<p>Build tools are their own programming language</p>
 				</section>
-				<section>Functional - Functions are first class objects</section>
-				<section>Object Oriented - Data and logic separated by default</section>
-				<section>Test Driven Development - Built in test features and robust libraries</section>
-				<section>Web Native - Libraries for easy self hosted web apps</section>
-				<section>Distributed - Libraries for remote interaction</section>
+				<section data-transition="zoom">
+					<h2>Make</h2>
+					<pre><code class="makefile" data-trim contenteditable>
+PROGNAME=myprogram
+OBJS=$(patsubst %.c, %.o, $(wildcard *.c))
+.PHONY: all
+
+$(PROGNAME):
+	$(CC) -o $@ $^
+
+clean:
+	rm -f $(PROGNAME)
+	rm -f *.o
+					</code></pre>
+				</section>
+				<section data-transition="zoom">
+					<h2>CMake</h2>
+					<pre><code class="cmake" data-trim contenteditable>
+cmake_minimum_required(VERSION 2.8)
+
+file(GLOB program_SRC
+	"*.c"
+)
+
+add_executable(myprogram ${program_SRC})
+					</code></pre>
+				</section>
+				<section data-transition="zoom">
+					<h2>Auto-Tools</h2>
+					<pre><code class="hljs" data-trim contenteditable>
+// Sorry, it's a beautiful
+// mystery to me as well.
+					</code></pre>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Pointers Are Scary</h2>
+
+					<blockquote>
+						&ldquo;Programming is like playing with a loaded gun. C cocks the hammer for you.&rdquo;
+						<footer>
+							<cite>&mdash;Anonymous IBM Employee</cite>
+						</footer>
+					</blockquote>
+				</section>
+				<section>
+					<h2>Avoid Allocating Memory</h2>
+
+					<p>Prefer</p>
+					<pre><code class="c">
+	struct stat sb;, But Verify
+
+	if (stat("file.txt", &amp;sb))
+					</code></pre>
+
+					<p>Over</p>
+					<pre><code class="c">
+	struct stat *sb = calloc(1, sizeof(struct stat));
+					
+	if (stat("file.txt", sb))
+					</code></pre>
+				</section>
+				<section>
+					<h2>Symetry Is Your Friend</h2>
+					<span class="fragment current-visible">
+						<q>I say to you againe, doe not call up Any that you cannot put downe
+						</q>
+						<cite>&mdash;H.P. Lovecraft</cite>
+					</span>
+					<table class="fragment current-visible">
+						<tr>
+							<th>If You Write...</th>
+							<th>Also Write...</th>
+						</tr>
+						<tr>
+							<td>malloc/calloc</td>
+							<td>free</td>
+						</tr>
+						<tr>
+							<td>myobject_create</td>
+							<td>myobject_destroy</td>
+						</tr>
+					</table>
+
+				</section>
+				<section>
+					<h2>Trust Nothing</h2>
+
+					<p>Write automated tests for all of your code</p>
+
+					<p>Use valgrind on your tests</p>
+
+					<p>Do not ignore valgrind errors</p>
+
+				</section>
+			</section>
+
+			<section>
+				<h1>Test First</h1>
+
+				<p>I am a mere mortal.</p>
+				<p>I will F*** Up, and Rhonda says that's okay.</p>
+				<p>Tests catch silly mistakes before they become big mistakes.</p>
 			</section>
 
 		</div>
