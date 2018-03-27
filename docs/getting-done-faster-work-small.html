@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Getting to Done Faster: Working Small</title>
+
+	<meta name="description" content="A look at techniques I have used to make life better on my teams">
+	<meta name="author" content="Clay Dowling">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+
+			<section>
+				<h1>Getting To Done Faster</h1>
+				<h3>Work Small</h3>
+
+				<p>
+					<small>by
+						<a href="http://claydowling.com">Clay Dowling</a>
+					</small>
+				</p>
+
+			</section>
+
+			<section>
+				<h1>I want to solve my customers' problems.</h1>
+
+				<p>I'm not that fussy about the how.</p>
+			</section>
+
+			<section>
+				<h2>Caveat</h2>
+
+				<p>I am an agile software consultant. I've been drinking the cool aid for years.</p>
+			</section>
+
+			<section>
+				<h3>There's no one true way.</h3>
+			</section>
+
+			<section>
+				<section>
+					<h1>It's Always a People Problem</h1>
+				</section>
+
+				<section>
+					<h2>The Right People</h2>
+
+					<p>The smartest person isn't necessarily the best.</p>
+
+					<p>Adaptability is more useful than skill in a technology or technique.</p>
+				</section>
+
+				<section>
+					<h2>Take Care Of Your People</h2>
+
+					<p>Your success depends on the people around you. Proper care and feeding is essential.</p>
+
+				</section>
+
+				<section>
+					<h2>Sustainable Pace</h2>
+
+					<p>No nights.</p>
+
+					<p>No weekends.</p>
+					<p>No exceptions.</p>
+
+					<aside class="notes">
+						<p>Any work over 40 hours will probably have to be redone. In addition to any losses caused by errors, this will cost
+							twice as much as taking the proper time would have in the first place, due to opportunity costs.</p>
+					</aside>
+				</section>
+
+				<section>
+					<h1>Trust</h1>
+
+					<p>A team that trusts each other can move mountains. A team that lacks trust can barely roll down hill.</p>
+				</section>
+
+			</section>
+
+			<section>
+				<section>
+					<h2>Short Feedback Loops</h2>
+
+					<p>Mistakes caught earlier are cheaper than mistakes caught late.</p>
+
+				</section>
+
+				<section>
+					<h2>Show And Tell</h2>
+
+					<ul>
+						<li>Show incomplete work</li>
+						<li>Solicit feedback</li>
+						<li>Change direction based on feedback</li>
+						<li>You are not your code</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>You're Going To Build The Wrong Thing</h2>
+
+					<p>Make changing direction cheap.</p>
+					<ul>
+						<li>Invest the bare minimum in planning</li>
+						<li>Keep backlogs small</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Maximize The Work Not Done</h2>
+
+					<ul>
+						<li>Focus on value delivered, not features</li>
+						<li>Ruthlessly cut features as you achieve value</li>
+						<li>Celebrate the work you won't have to do</li>
+					</ul>
+
+				</section>
+
+				<section>
+					<h2>Automate Ruthlessly</h2>
+
+					<ul>
+						<li>Testing</li>
+						<li>Deployment</li>
+						<li>Backlog Grooming?</li>
+					</ul>
+
+				</section>
+
+				<section>
+					<h2>Avoid Handoffs</h2>
+
+					<ul>
+						<li>Combine Development and QA</li>
+						<li>Include the whole team in backlog grooming</li>
+					</ul>
+				</section>
+
+			</section>
+		</div>
+
+	</div>
+
+	<script src="reveal.js/lib/js/head.min.js"></script>
+	<script src="reveal.js/js/reveal.js"></script>
+
+	<script>
+
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [
+				{ src: 'reveal.js/lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'reveal.js/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'reveal.js/plugin/search/search.js', async: true },
+				{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: 'reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
