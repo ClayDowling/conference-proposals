@@ -149,7 +149,7 @@ add_executable(myprogram ${program_SRC})
 
 					<p>Prefer</p>
 					<pre><code class="c">
-	struct stat sb;, But Verify
+	struct stat sb;
 
 	if (stat("file.txt", &amp;sb))
 					</code></pre>
@@ -163,12 +163,8 @@ add_executable(myprogram ${program_SRC})
 				</section>
 				<section>
 					<h2>Symetry Is Your Friend</h2>
-					<span class="fragment current-visible">
-						<q>I say to you againe, doe not call up Any that you cannot put downe
-						</q>
-						<cite>&mdash;H.P. Lovecraft</cite>
-					</span>
-					<table class="fragment current-visible">
+
+					<table>
 						<tr>
 							<th>If You Write...</th>
 							<th>Also Write...</th>
@@ -196,12 +192,36 @@ add_executable(myprogram ${program_SRC})
 				</section>
 			</section>
 
-			<section>
+			<section data-background="images/toy-boat.jpg">
+				<h1>&nbsp;</h1>
 				<h1>Test First</h1>
 
-				<p>I am a mere mortal.</p>
-				<p>I will F*** Up, and Rhonda says that's okay.</p>
-				<p>Tests catch silly mistakes before they become big mistakes.</p>
+			</section>
+
+			<section>
+				<h2>F*ck Ups Happen</h2>
+
+				<p>I am a mere mortal, and that's okay.</p>
+
+				<img src="images/ferry-aground.jpg" />
+			</section>
+
+			<section>
+				<h2>An Example</h2>
+
+				<pre><code class="c">
+START_TEST(skillcmp_givenAandB_returnsNegativeOne) {
+  skill_t *a = skill_create("A", 0, S_CATEGORY, S_ATTRIBUTE);
+  skill_t *b = skill_create("B", 0, S_CATEGORY, S_ATTRIBUTE);
+	
+  ck_assert_int_eq(-1, skill_cmp(a, b));
+	
+  skill_destroy(a);
+  skill_destroy(b);
+}
+END_TEST
+				</code></pre>
+
 			</section>
 
 		</div>
