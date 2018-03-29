@@ -46,7 +46,7 @@
 				<h1>Advanced TDD With Mocks</h1>
 
 				<p>Clay Dowling</p>
-				<p>claydowling.com</p>
+				<p><a href="http://claydowling.com ">claydowling.com</a></p>
 			</section>
 
 			<section>
@@ -114,7 +114,7 @@ TEST_F(CITest, getLineTotal_withDifferentPrice_returnsItemPrice)
 
 	ASSERT_EQ(item.getItemTotal(), 5.42);
 }						
-					</code></pre>
+					</code></pre><CartItem></CartItem>
 				</section>
 
 				<section>
@@ -137,7 +137,7 @@ double CartItem::getItemTotal() {
 class Cart {
   public:
     int itemCount();
-    void addItem(unique_ptr<CartItem> item);
+    void addItem(unique_ptr&lt;CartItem&gt; item);
 };
 					</code></pre>
 				</section>
@@ -147,18 +147,176 @@ class Cart {
 <pre><code class="cpp ">
 TEST_F(CTest, itemCount_afterOneItemAdded_returnsOne) {
 
-	cart.addItem(make_unique<CartItem>(
+	cart.addItem(make_unique&lt;CartItem&gt;(
 		CartItem(ITEM_NAME, 1, 3.14)));
 
 	ASSERT_EQ(cart.itemCount(), 1);
 }	
 </code></pre>
 <pre><code class="cpp ">
-void Cart::addItem(unique_ptr<CartItem> item) {
+void Cart::addItem(unique_ptr&lt;CartItem&gt; item) {
 		items.push_back(move(item));
 }
 </code></pre>
 				</section>
+
+				<section>
+				<section>
+					<h2>A Wild Interface Appears!</h2>
+					<pre><code class="cpp ">
+class DataResult {
+
+public:
+	virtual shared_ptr&lt;vector&lt;string&gt;&gt; getFields() = 0;
+	virtual shared_ptr&lt;vector&lt;string&gt;&gt; getNext() = 0;
+	virtual bool eof() = 0;
+};
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>It Has a Friend</h2>
+					<pre><code class="cpp ">
+class DataStore {
+
+public:
+	virtual void setQuery(string sql) = 0;
+	virtual void setParam(string param, string value) = 0;
+	virtual void setParam(string param, int value) = 0;
+	virtual void setParam(string param, double value) = 0;
+
+	virtual DataResult execute() = 0;
+};</code></pre>
+							
+				</section>
+
+			</section>
+
+			<section>
+
+				<section>
+					<h2>Let Us Make Mock</h2>
+					<pre><code class="cpp ">#include "DataResult.h "
+
+class MockDataResult : public DataResult {
+public:
+	virtual shared_ptr&lt;vector&lt;string&gt;&gt; getFields() override;
+	virtual shared_ptr&lt;vector&lt;string&gt;&gt; getNext() override;
+	virtual bool eof() override;
+
+	void addNext(int fieldCount, ...);
+	void setFields(int fieldCount, ...);
+
+private:
+	queue&lt;shared_ptr&lt;vector&lt;string&gt;&gt;&gt; dataset;
+	shared_ptr&lt;vector&lt;string&gt;&gt; fields;
+};</code></pre>
+				</section>
+
+				<section>
+					<h2>Mocking The Fields</h2>
+					<pre><code class="cpp ">shared_ptr&lt;vector&lt;string&gt;&gt; MockDataResult::getFields() { 
+  return fields; 
+}
+						  
+void MockDataResult::setFields(int fieldCount, ...) {
+  vector&lt;string&gt; f;
+  va_list args;
+  va_start(args, fieldCount);
+  for (int i = 0; i < fieldCount; ++i) {
+    f.push_back(va_arg(args, const char *));
+  }
+  va_end(args);
+	
+  fields = make_shared&lt;vector&lt;string&gt;&gt;(f);
+}
+
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Mocking the Rows</h2>
+					<pre><code class="cpp ">void MockDataResult::addNext(int fieldCount, ...) {
+	vector&lt;string&gt; row;
+	va_list args;
+	va_start(args, fieldCount);
+	for (int i = 0; i < fieldCount; ++i) {
+	  row.push_back(va_arg(args, const char *));
+	}
+	va_end(args);
+  
+	dataset.push(make_shared&lt;vector&lt;string&gt;&gt;(row));
+}</code></pre>
+				</section>
+
+				<section>
+					<h2>Mocking the Rows (cont.)</h2>
+					<pre><code class="cpp ">
+shared_ptr&lt;vector&lt;string&gt;&gt; MockDataResult::getNext() {
+  auto row = dataset.front();
+  dataset.pop();
+  return row;
+}
+
+bool MockDataResult::eof() { return dataset.empty(); }
+					</code></pre>
+				</section>
+
+			</section>
+
+			<section>
+				<section>
+					<h2>Let's Use Our Mock</h2>
+					<pre><code class="cpp ">TEST_F(CITest, inputStream_givenAllFields_populatesCartItem)
+{
+	result.setFields(3, "name ", "price ", "quantity ");
+	result.addNext(3, ITEM_NAME, "3.14 ", "1 ");
+
+	result >> item;
+
+	ASSERT_EQ(item.getName(), ITEM_NAME);
+	ASSERT_EQ(item.getPrice(), 3.14);
+	ASSERT_EQ(item.getQuantity(), 1);
+}					
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Using the Fields</h2>
+					<pre><code class="cpp ">DataResult& operator>>(DataResult& in, CartItem& item) {
+
+  &vellip;
+
+  auto fields = in.getFields();
+
+  for(int i=0; i < fields->size(); ++i) {
+    if ("name " == fields->at(i)) name_idx = i;
+    if ("price " == fields->at(i)) price_idx = i;
+    if ("quantity " == fields->at(i)) quantity_idx = i;
+  }
+
+  &vellip;
+
+}</code></pre>
+				</section>
+
+				<section>
+					<h2>Reading a Row</h2>
+					<pre><code class="cpp ">DataResult& operator>>(DataResult& in, CartItem& item) {
+
+  &vellip;
+
+  auto row_ptr = in.getNext();
+  auto row = *row_ptr;
+  item.setName(row[name_idx]);
+  item.setQuantity(stoi(row[quantity_idx]));
+  item.setPrice(stod(row[price_idx], nullptr));
+
+  return in;
+}</code></pre>
+				</section>
+
+			</section>
 
 		</div>
 
