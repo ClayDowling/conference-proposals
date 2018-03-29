@@ -269,7 +269,7 @@ bool MockDataResult::eof() { return dataset.empty(); }
 					<h2>Let's Use Our Mock</h2>
 					<pre><code class="cpp ">TEST_F(CITest, inputStream_givenAllFields_populatesCartItem)
 {
-	result.setFields(3, "name ", "price ", "quantity ");
+	result.setFields(3, "name", "price", "quantity");
 	result.addNext(3, ITEM_NAME, "3.14 ", "1 ");
 
 	result >> item;
@@ -290,9 +290,9 @@ bool MockDataResult::eof() { return dataset.empty(); }
   auto fields = in.getFields();
 
   for(int i=0; i < fields->size(); ++i) {
-    if ("name " == fields->at(i)) name_idx = i;
-    if ("price " == fields->at(i)) price_idx = i;
-    if ("quantity " == fields->at(i)) quantity_idx = i;
+    if ("name" == fields->at(i)) name_idx = i;
+    if ("price" == fields->at(i)) price_idx = i;
+    if ("quantity" == fields->at(i)) quantity_idx = i;
   }
 
   &vellip;
