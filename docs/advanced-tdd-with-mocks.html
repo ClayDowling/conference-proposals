@@ -193,6 +193,10 @@ public:
 			</section>
 
 			<section>
+				<h1>Problem: Databases are too slow</h1>
+			</section>
+
+			<section>
 
 				<section>
 					<h2>Let Us Make Mock</h2>
@@ -269,7 +273,7 @@ bool MockDataResult::eof() { return dataset.empty(); }
 					<h2>Let's Use Our Mock</h2>
 					<pre><code class="cpp ">TEST_F(CITest, inputStream_givenAllFields_populatesCartItem)
 {
-	result.setFields(3, "name", "price", "quantity");
+	result.setFields(3, "name ", "price ", "quantity ");
 	result.addNext(3, ITEM_NAME, "3.14 ", "1 ");
 
 	result >> item;
@@ -290,9 +294,9 @@ bool MockDataResult::eof() { return dataset.empty(); }
   auto fields = in.getFields();
 
   for(int i=0; i < fields->size(); ++i) {
-    if ("name" == fields->at(i)) name_idx = i;
-    if ("price" == fields->at(i)) price_idx = i;
-    if ("quantity" == fields->at(i)) quantity_idx = i;
+    if ("name " == fields->at(i)) name_idx = i;
+    if ("price " == fields->at(i)) price_idx = i;
+    if ("quantity " == fields->at(i)) quantity_idx = i;
   }
 
   &vellip;
@@ -316,6 +320,119 @@ bool MockDataResult::eof() { return dataset.empty(); }
 }</code></pre>
 				</section>
 
+			</section>
+
+			<section>
+				<section>
+					<h2>Mocking the DataStore</h2>
+					<pre><code class="cpp ">class MockDataStore : public DataStore {
+public:
+	MockDataStore();
+	void setQuery(string sql) override;
+	void setParam(string param, string value) override;
+	void setParam(string param, int value) override;
+	void setParam(string param, double value) override;
+	DataResult execute() override;
+private:
+	map&lt;string, string&gt; string_params;
+	map&lt;string, int&gt; int_params;
+	map&lt;string, double&gt; double_params;
+	bool execute_called;
+};</code></pre>
+				</section>
+				<section>
+					<h2>Capture the Query</h2>
+					<pre><code class="cpp ">
+void MockDataStore::setQuery(string sql) {
+  this->sql = sql;
+  string_params.clear();
+  int_params.clear();
+  double_params.clear();
+}						
+					</code></pre>
+				</section>
+				<section>
+					<h2>Capture Parameters</h2>
+					<pre><code class="cpp ">
+void MockDataStore::setParam(string param, string value) {
+	string_params[param] = value;
+}
+
+void MockDataStore::setParam(string param, int value) {
+	int_params[param] = value;
+}
+
+void MockDataStore::setParam(string param, double value) {
+	double_params[param] = value;
+}						
+					</code></pre>
+				</section>
+				<section>
+						<h2>Verify Parameters</h2>
+						<pre><code class="cpp ">string MockDataStore::getSql() {
+	return sql;
+}
+string MockDataStore::getStringParam(string param) {
+	return string_params.at(param);
+}
+int MockDataStore::getIntParam(string param) {
+	return int_params.at(param);
+}
+double MockDataStore::getDoubleParam(string param) {
+	return double_params.at(param);
+}
+bool MockDataStore::executeWasCalled() {
+	return execute_called;
+}</code></pre>
+					</section>				
+			</section>
+
+			<section>
+			<section>
+				<h2>Test Saving Items</h2>
+				<pre><code class="cpp ">
+TEST_F(CITest, outputStream_byDefault_setsQueryParameters) {
+
+	item.setName(ITEM_NAME);
+	item.setPrice(3.14);
+	item.setQuantity(5);
+
+	store &lt;&lt; item;
+
+	ASSERT_EQ(store.getStringParam(":name "), ITEM_NAME);
+	ASSERT_EQ(store.getIntParam(":quantity "), 5);
+	ASSERT_EQ(store.getDoubleParam(":price "), 3.14);
+	ASSERT_TRUE(store.executeWasCalled());
+}				
+				</code></pre>
+			</section>
+
+			<section>
+				<h2>Make The Test Pass</h2>
+				<pre><code class="cpp ">
+DataStore& operator&lt;&lt;(DataStore& out, CartItem& item) {
+	out.setParam(":name ", item.getName());
+	out.setParam(":price ", item.getPrice());
+	out.setParam(":quantity ", item.getQuantity());
+	out.execute();
+	return out;
+}					
+				</code></pre>
+			</section>
+
+			</section>
+
+			<section>
+				<h1>What Else?</h1>
+				<p>Question about your specific situation?</p>
+				<p>What do you want to know more about?</p>
+			</section>
+
+			<section>
+				<h1>Thank You</h1>
+
+				<p>Clay Dowling</p>
+				<p>claydowling.com</p>
 			</section>
 
 		</div>
