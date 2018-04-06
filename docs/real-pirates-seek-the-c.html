@@ -162,7 +162,7 @@ add_executable(myprogram ${program_SRC})
 					</code></pre>
 				</section>
 				<section>
-					<h2>Symetry Is Your Friend</h2>
+					<h2>Symmetry Is Your Friend</h2>
 
 					<table>
 						<tr>
@@ -207,9 +207,10 @@ add_executable(myprogram ${program_SRC})
 			</section>
 
 			<section>
-				<h2>An Example</h2>
+				<section>
+					<h2>An Example</h2>
 
-				<pre><code class="c">
+					<pre><code class="c">
 START_TEST(skillcmp_givenAandB_returnsNegativeOne) {
   skill_t *a = skill_create("A", 0, S_CATEGORY, S_ATTRIBUTE);
   skill_t *b = skill_create("B", 0, S_CATEGORY, S_ATTRIBUTE);
@@ -222,8 +223,37 @@ START_TEST(skillcmp_givenAandB_returnsNegativeOne) {
 END_TEST
 				</code></pre>
 
-			</section>
+				</section>
+				<section>
+					<h2>A Test Run</h2>
+					<pre><code class="bash">
+./test-changelog
+Unity test run 1 of 1
+.....
 
+-----------------------
+5 Tests 0 Failures 0 Ignored
+OK</code></pre>
+				</section>
+
+				<section>
+					<h2>Run Tests With a Build</h2>
+					<pre><code class="make">
+all: test product
+
+product: $(OBJECTS) main.o
+	$(CC) -o $@ $^
+	
+test: test-product
+	./test-product
+	valgrind test-product
+
+test-product: $(TEST_OBJECTS) $(OBJECTS)
+	$(CC) -o $@ $^ $(TEST_LIBS)
+					</code></pre>
+				</section>
+
+			</section>
 		</div>
 
 	</div>
