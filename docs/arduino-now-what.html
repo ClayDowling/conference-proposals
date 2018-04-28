@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>You've Got an Arduino: Now What?</title>
+
+	<meta name="description" content="A brief overview of how to get started working with Arduino.">
+	<meta name="author" content="Clay Dowling">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="reveal.js/css/reveal.css">
+	<link rel="stylesheet" href="reveal.js/css/theme/sky.css" id="theme">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+		<script src="reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section>
+				<h1>You've Got an Arduino</h1>
+				<h3>Now What?</h3>
+				<p>
+					<small>Created by
+						<a href="http://claydowling.com">Clay Dowling</a>
+					</small>
+				</p>
+			</section>
+
+			<section>
+				<h1>Learn Electronics!</h1>
+
+				<p>The Hard Way &amp; The Easy Way</p>
+			</section>
+
+			<section>
+				<h1>The Hard Way</h1>
+
+				<p>The Art of Electronics - Horowitz &amp; Hill</p>
+
+				<p>Comprehensive reference and text book.</p>
+
+				<p>There is math and scary diagrams.</p>
+			</section>
+
+			<section>
+				<h1>The Easy Way</h1>
+
+				<ul>
+					<li>Adafruit.com</li>
+					<li>Sparkfun.com</li>
+					<li>The Arduino Workshop - No Start Press</li>
+					<li>Arduino Robotics - APress</li>
+				</ul>
+			</section>
+
+			<section>
+				<h1>Shields - A Quick Start</h1>
+
+				<p>Shields are pre-built circuits that plug into a larger Arduino board.</p>
+			</section>
+
+			<section>
+				<h1>Some Fun Shields</h1>
+
+				<ul>
+					<li>Ethernet Shield - Talk on the Interenet.</li>
+					<li>Relay Shield - Control household circuits.</li>
+					<li>Motor Shield - Control DC motors.</li>
+					<li>CAN Bus Shield - Interact with your car.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Fun Parts</h2>
+
+				<p>Lights</p>
+				<p>Motion</p>
+				<p>Noise</p>
+			</section>
+
+			<section>
+				<h1>Lights</h1>
+
+				<ul>
+					<li>LEDs</li>
+					<li>WS1812B - Neopixel</li>
+					<li>120v Lights</li>
+				</ul>
+			</section>
+
+
+		</div>
+
+	</div>
+
+	<script src="reveal.js/lib/js/head.min.js"></script>
+	<script src="reveal.js/js/reveal.js"></script>
+
+	<script>
+
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'zoom', // none/fade/slide/convex/concave/zoom
+
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [
+				{ src: 'reveal.js/lib/js/classList.js', condition: function () { return !document.body.classList; } },
+				{ src: 'reveal.js/plugin/markdown/marked.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function () { return !!document.querySelector('[data-markdown]'); } },
+				{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+				{ src: 'reveal.js/plugin/search/search.js', async: true },
+				{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+				{ src: 'reveal.js/plugin/notes/notes.js', async: true }
+			]
+		});
+
+	</script>
+
+</body>
+
+</html>
