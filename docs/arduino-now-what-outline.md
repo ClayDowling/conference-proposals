@@ -12,6 +12,7 @@
    * Atmel 328p boards
    * Really Cheap Boards
    * Building Your Own Arduino
+   * Arduboy
 
  * What tools Do I Need?
 
