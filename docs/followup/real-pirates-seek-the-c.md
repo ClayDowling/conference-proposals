@@ -1,5 +1,8 @@
-# Real Pirates Seek the C!
-
+---
+title: "Real Pirates Seek the C!"
+layout: single
+category: followup
+---
 This is a collection of links with more information for people interested in
 learning more about C programming.
 
