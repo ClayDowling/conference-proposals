@@ -15,6 +15,10 @@ These books from Packt Publishing are approachable even for the inexperienced.
  * Internet of Things with Arduino Blueprints
  * Learning C for Arduino - Not my favorite book, but give it a look to see if it works for you.
 
+For a deep dive into electronics, [The Art of Electronics](https://amzn.to/2HTocyL), a.k.a. Horowitz & Hill.  Full of scary math and diagrams and magic.  If you want to really understand electronics, this book is the place to start.
+
+[Arduino Workshop](https://amzn.to/2Id67iC) is a great deep dive into the Arduino world, including building your own from chips.
+
 If you're unfamiliar with C or C++, look at [The C++ Programming Language](https://amzn.to/2jwEbZd) by Bjarne Stroustrupe.
 
 ## Other Hardware Interface Libraries
@@ -29,7 +33,8 @@ If you're unfamiliar with C or C++, look at [The C++ Programming Language](https
 
 ## Electronics Parts
 
- * Amazon Has Lots of Stuff
+ * [Sunfounder New Nano Super Starter Kit](https://amzn.to/2IeDZvt) is a great starter, and even includes an Arduino Nano.  The Nano is easily my favorite form factor.
+ * [A Sack of Arduinos](https://amzn.to/2KD4MAd) the price has gone up slightly, but it's still going to be a sack full of computers coming to your door at under $4 each.
  * [MPJA](http://www.mpja.com) the Harbor Freigh of parts suppliers.  They don't have everything, but they have a lot of stuff at good prices.
  * [Allied Electronics](https://www.alliedelec.com/) is a professional supply house.
  * [Sparkfun](https://www.sparkfun.com/) targetted at the hobbyist and full of good terminals.
