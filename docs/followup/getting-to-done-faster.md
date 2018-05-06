@@ -1,3 +1,8 @@
+---
+title: "Getting to Done Faster"
+category: followup
+---
+
 # Getting to Done Faster
 
 These are books that I referenced in the talk or have found helpful in my own journey.

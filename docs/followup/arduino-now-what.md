@@ -1,3 +1,8 @@
+---
+title: "You've Got an Arduino, Now What?"
+category: followup
+---
+
 # You've Got an Arduino, Now What?
 
 ## Books for Learning
