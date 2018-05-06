@@ -9,6 +9,8 @@ is a nice overview of pointers and how to use them.  It has an especially fun
 section about how pointers are used when programming microcontrollers to make
 programming easier.
 
+[Learn C The Hard Way](https://amzn.to/2wgAj7Q) is a book that I haven't used, but many people I know have had good experiences with learning C from this book.
+
 [The C Programming Language](https://amzn.to/2q7E7lq) is the definitive
 textbook on the language.  It's concise and to the point.  There have been
 plenty of advances since this book was written, but this is probably the best
