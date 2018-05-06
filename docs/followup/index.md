@@ -1,6 +1,6 @@
 ---
 title: "Slideshow Follow Up"
-category: "followup"
+taxonomy: "followup"
 layout: "category"
 ---
 
