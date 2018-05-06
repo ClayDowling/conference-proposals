@@ -1,6 +1,7 @@
 ---
 title: "You've Got an Arduino, Now What?"
 category: followup
+layout: single
 ---
 
 # You've Got an Arduino, Now What?

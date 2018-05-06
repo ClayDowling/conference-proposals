@@ -1,6 +1,7 @@
 ---
 title: "Getting to Done Faster"
 category: followup
+layout: single
 ---
 
 # Getting to Done Faster
