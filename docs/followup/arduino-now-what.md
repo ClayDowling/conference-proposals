@@ -4,8 +4,6 @@ category: followup
 layout: single
 ---
 
-# You've Got an Arduino, Now What?
-
 ## Books for Learning
 
 These books from Packt Publishing are approachable even for the inexperienced.
