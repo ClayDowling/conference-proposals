@@ -1,6 +1,6 @@
 ---
 title: "Clay's Presentations"
-layout: 
+layout: single
 ---
 # Clay's Presentations
 
