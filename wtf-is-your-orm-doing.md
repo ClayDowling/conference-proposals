@@ -6,5 +6,5 @@ After this session, participants will be able to:
 
 * Write basic SQL queries.
 * Write code to use SQL queries.
-* Test code to use SQL queries.
+* Test code that uses SQL queries.
 * Know when and where SQL will help you.
