@@ -1,7 +1,9 @@
-theme: jekyll-theme-minimal
-title: "Clay Dowling"
 
+remote_theme: mmistakes/minimal-mistakes
+
+title: "Clay Dowling"
+author: "Clay Dowling"
 
 # Presentations
 collections:
-  - team-happiness
+  - team-health
