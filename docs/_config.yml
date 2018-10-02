@@ -1,9 +1,59 @@
 
-remote_theme: mmistakes/minimal-mistakes
+remote_theme: "mmistakes/minimal-mistakes"
 
-title: "Clay Dowling"
-author: "Clay Dowling"
+locale: "en-US"
+title: "Monday Knights"
+title_separator: "-"
+description: "Steampunk Adventures"
+name: &name "Clay Dowling"
+base-url: "/mondayknights/"
+repository: "ClayDowling/mondayknights"
+markdown: kramdown
 
-# Presentations
+author:
+        name: *name
+        bio: "Game master, RPG fan. Supplier of whiskey to golden coated cats."
+        avatar: "/assets/images/clay-with-kronos.jpg"
+        location: "Dexter, MI"
+        email: "clay@lazarusid.com"
+        uri: "http://claydowling.com"
+
+search: true
+search_full_content: true
+minimal_mistakes_skin: air
+
+include:
+  - _pages
+  - assets
+
 collections:
-  - team-health
+  team-health:
+    output: true
+    permalink: /:collection/:name:output_ext
+
+defaults:
+        # _posts
+        - scope:
+                path: ""
+                type: posts
+          values:
+                  layout: single
+                  author_profile: true
+                  read_time: true
+                  share: true
+                  related: true
+        # _pages
+        - scope:
+                path: ""
+                type: pages
+          values:
+                layout: single
+                author_profile: true
+        # _team-health
+        - scope:
+                path: ""
+                type: slides
+          values:
+                layout: slides
+                author_profile: 
+                related: true
