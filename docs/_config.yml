@@ -1,1 +1,7 @@
 theme: jekyll-theme-minimal
+title: "Clay Dowling"
+
+
+# Presentations
+collections:
+  - team-happiness
