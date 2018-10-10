@@ -1,2 +1,24 @@
+# Dependencies
+highlighter:      rouge
 
-theme: jekyll-theme-minimal
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Conference Slides
+tagline:          'My Favorite Slides'
+description:      'Proposals and presentations'
+url:              https://lazarusid.github.io/
+baseurl:          /conference-proposals/
+
+author:
+  name:           'Clay Dowling'
+  url:            http://claydowling.com
+
+paginate:         5
+
+# Custom vars
+version:          2.0
+
+github:
+  repo:           https://github.com/LazarusID/conference-proposals
