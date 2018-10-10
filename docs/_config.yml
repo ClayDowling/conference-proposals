@@ -57,3 +57,5 @@ defaults:
                 layout: slides
                 author_profile: 
                 related: true
+
+theme: jekyll-theme-minimal
