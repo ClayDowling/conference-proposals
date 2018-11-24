@@ -1,4 +1,6 @@
-# Test First Development
+---
+title: "Test First Development"
+---
 
 We all know that we _should_ be writing tests.  That doesn't mean that we all
 do it.  In this session I'll walk you through how I approach tests, by writing
