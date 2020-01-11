@@ -9,6 +9,6 @@ Coming out of this, you should understand the value of:
 * Ruthlessly focusing on minimum viable product.
 * Choosing the right team.
 * Collaboration to quickly level up your team.
-* Agressive testing to ensure that our code is always working.
+* Agressive testing to ensure that your code is always working.
 * Team roles that you need to fill.
 
